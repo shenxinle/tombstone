@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "preview": "ws -d ./docs/.vuepress/dist -p 3001"
+    "start": "vuepress dev src",
+    "build": "vuepress build src",
+    "preview": "ws -d ./docs -p 3001"
   },
   "author": "shenxl",
   "license": "MIT",

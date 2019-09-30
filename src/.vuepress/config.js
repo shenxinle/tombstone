@@ -1,4 +1,5 @@
 module.exports = {
+  dest: './docs',
   base: '/tombstone/',
   title: 'tombstone',
   description: 'tombstone docs',
