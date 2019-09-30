@@ -3,7 +3,9 @@ module.exports = {
   base: '/tombstone/',
   title: 'tombstone',
   description: 'tombstone docs',
-  head: [],
+  head: [
+    ['link', { rel: 'icon', href: `/favicon.ico` }]
+  ],
   port: 3009,
   themeConfig: {
     nav: [
