@@ -20,7 +20,7 @@ module.exports = {
     sidebar: [
       ['/', 'home'],
       {
-        title: 'handbook',
+        title: '手册',
         path: '/handbook/',
         collapsable: true, // 默认 true, 可折叠； 设为 false 永远展开
         sidebarDepth: 1,
@@ -29,7 +29,16 @@ module.exports = {
         ]
       },
       {
-        title: 'blog',
+        title: '前端技术清单',
+        path: '/frontend/',
+        collapsable: false, // 默认 true, 可折叠； 设为 false 永远展开
+        sidebarDepth: 1,
+        children: [
+          '/frontend/performance/'
+        ]
+      },
+      {
+        title: '文章',
         path: '/blog/',
       }
     ]
