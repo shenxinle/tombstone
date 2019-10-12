@@ -73,15 +73,106 @@
 
 ## 页面解析与处理
 
+* 资源在页面文档中的位置
+  * JS 可以修改 DOM, 也可以修改 CSS。 根据标准规范，在 JavaScript 中可以访问 DOM。因此当遇到 JavaScript 后会阻塞 DOM 的解析。于此同时，为避免 CSS 与 JavaScript 之间的竞态，CSSOM 的构建会阻塞 JavaScript 的脚本执行。
+  * 在最佳实践中，推荐把 CSS 样式表放在 `<head>` 之中（即页面的头部），把 JavaScript 脚本放在 `<body>` 的最后（即页面的尾部）。
+
+  ![render](./assets/render.png)
+
+* 使用 defer 和 async
+  * defer 会在 HTML 解析完成后，按照脚本出现的次序再顺序执行；而 async 则是下载完成就立即开始执行，同时阻塞页面解析，不保证脚本间的执行顺序。
+  * ubt 脚本一般用 async
+
+  ![defer](./assets/defer.png)
+
+* 页面文档压缩（gzip）
 
 ## 页面静态资源
 
+* 减少不必要的请求
+  * 浏览器对同源请求有并发上限的限制（例如 Chrome 是6）（HTTP/1.1）
+  * TCP/IP 的拥塞控制也使其传输有慢启动（slow start）的特点，连接刚建立时包体传输速率较低，后续会渐渐提速
+* 减少包体大小
+* 降低应用资源时的消耗
+  * CPU 密集计算
+  * 频繁 DOM 操作
+* 利用缓存
+
+### JavaScript
+
+* 减少不必要的请求
+  * 代码拆分（code split）和按需加载
+    * 思路
+    
+    ```js
+    document.getElementById('btn').addEventListener('click', e => {
+      const script = document.createElement('script');
+      script.src = '/static/js/toload.js';
+      document.getElementsByTagName('head')[0].appendChild(script);
+    });
+    ```
+
+    * webpack 内 dynamic import
+    * AMD(RequireJS)
+
+  * 代码合并
+* 减少包体大小
+  * 代码压缩
+    * UglifyJS
+    * gizp
+  * Tree Shaking
+  * 优化 polyfill 使用
+    * 根据浏览器支持情况来下发 polyfill
+  * webpack
+    * webpack-bundle-analyzer 分析各个模块占用大小
 
 ## 运行时
 
+* 注意强制同步布局
+  * 避免修改了 dom 再获取 dom 其他属性
+* 善用 Composite
+* 长列表优化
+  * 虚拟列表实现
+* 滚动事件优化
+  * throttle
+  * debounce
+* 避免 JS 运行事件过长
 
 ## 预加载
 
+* 预加载技术
+  * Resource Hints
+    * DNS Prefetch
+    * Preconnect
+    * Prefetch
+      * `<link rel="prefetch" href="/prefetch.js" as="script">`
+    * Prerender
+      * `<link rel="prerender" href="//sample.com/nextpage.html">`
+    * Preload
+      * `<link rel="preload" href="./nextpage.js" as="script">`
+
+    与 Prefetch 相比，Preload 会强制浏览器立即获取资源，并且该请求具有较高的优先级（mandatory and high-priority），因此建议对一些当前页面会马上用到资源使用 Preload；相对的，Prefetch 的资源获取则是可选与较低优先级的，其是否获取完全取决于浏览器的决定，适用于预获取将来可能会用到的资源。
+
+    * 在 webpack 中使用
+
+    ```js
+    // prefetch
+    import(/* webpackPrefetch: true */ './sub1.js');
+
+    // preload
+    import(/* webpackPreload: true */ './sub2.js')
+    ```
+
+  * 基于 JavaScript 的预加载
+    * 图片(不需要插入页面)
+
+    ```js
+    let img = new Image();
+    img.src = '/static/img/prefetch.jpg';
+    ```
+
+    * JS、CSS(需要通过 script、link 添加到页面)
 
 ## 参考文章
+* [前端性能优化](https://alienzhou.github.io/fe-performance-journey/)
 * [深入理解浏览器的缓存机制](https://www.jianshu.com/p/54cc04190252)
