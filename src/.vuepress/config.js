@@ -35,7 +35,14 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           '/frontend/performance/',
-          '/frontend/javascript/howjsworks'
+          {
+            title: 'JavaScript',
+            path: '/frontend/javascript/',
+            children: [
+              '/frontend/javascript/howjsworks',
+              '/frontend/javascript/crossorigin'
+            ]
+          }
         ]
       },
       {
