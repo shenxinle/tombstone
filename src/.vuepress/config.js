@@ -39,6 +39,7 @@ module.exports = {
             title: 'JavaScript',
             path: '/frontend/javascript/',
             children: [
+              '/frontend/javascript/howbrowserworks',
               '/frontend/javascript/howjsworks',
               '/frontend/javascript/crossorigin'
             ]
