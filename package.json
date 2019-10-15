@@ -6,7 +6,8 @@
   "scripts": {
     "start": "vuepress dev src",
     "build": "vuepress build src",
-    "preview": "ws -d ./docs -p 3001"
+    "preview": "ws -d ./docs -p 3001",
+    "build-push": "npm run build && git add . && git commit -m build && git push"
   },
   "author": "shenxl",
   "license": "MIT",
