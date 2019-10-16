@@ -157,6 +157,8 @@ flex-direction的值被定义为弹性盒子的主轴（main axis）。默认的
   * 注：**当使用一个或两个无单位数时, flex-basis会从auto变为0.**
 * algin-self: 同容器属性 align-items
 
+[简单 flex 示例](https://codepen.io/shenxinle/pen/OJJXpKj)
+
 
 ## 网格布局（grid layout）
 

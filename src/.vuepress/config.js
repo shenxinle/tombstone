@@ -51,7 +51,8 @@ module.exports = {
             collapsable: false,
             children: [
               '/frontend/css/cssom',
-              '/frontend/css/csslayout'
+              '/frontend/css/csslayout',
+              '/frontend/css/bfc'
             ]
           }
         ]
