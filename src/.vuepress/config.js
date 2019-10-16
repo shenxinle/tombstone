@@ -42,7 +42,9 @@ module.exports = {
             collapsable: false,
             children: [
               '/frontend/javascript/howjsworks',
-              '/frontend/javascript/crossorigin'
+              '/frontend/javascript/crossorigin',
+              '/frontend/javascript/jsapi',
+              '/frontend/javascript/dom'
             ]
           },
           {
