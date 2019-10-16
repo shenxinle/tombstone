@@ -38,10 +38,19 @@ module.exports = {
           {
             title: 'JavaScript',
             path: '/frontend/javascript/',
+            collapsable: false,
             children: [
               '/frontend/javascript/howbrowserworks',
               '/frontend/javascript/howjsworks',
               '/frontend/javascript/crossorigin'
+            ]
+          },
+          {
+            title: 'CSS',
+            path: '/frontend/css/',
+            collapsable: false,
+            children: [
+              '/frontend/css/cssom'
             ]
           }
         ]
