@@ -50,7 +50,8 @@ module.exports = {
             path: '/frontend/css/',
             collapsable: false,
             children: [
-              '/frontend/css/cssom'
+              '/frontend/css/cssom',
+              '/frontend/css/csslayout'
             ]
           }
         ]
