@@ -34,13 +34,13 @@ module.exports = {
         collapsable: false, // 默认 true, 可折叠； 设为 false 永远展开
         sidebarDepth: 1,
         children: [
+          '/frontend/browser/howbrowserworks',
           '/frontend/performance/',
           {
             title: 'JavaScript',
             path: '/frontend/javascript/',
             collapsable: false,
             children: [
-              '/frontend/javascript/howbrowserworks',
               '/frontend/javascript/howjsworks',
               '/frontend/javascript/crossorigin'
             ]
