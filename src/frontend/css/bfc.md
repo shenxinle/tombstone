@@ -15,8 +15,11 @@ Once an element creates a BFC, everything is contained inside it.
 
 [示例](https://codepen.io/rachelandrew/pen/WXyvpd)
 
+注：关于第二点，只能阻止父子元素 margin 重叠，兄弟元素不行。**浮动元素、inline-block 元素、绝对定位元素的 margin 不会和垂直方向上相邻兄弟元素的 margin 折叠**，这是 BFC 的一个子集。
+
 ### 创建 BFC 的情形
 
+* float 值不为 none
 * overflow 值不为 visible
 * position 为 absolute 或 fixed
 * display 为 inline-block / table-cell / table-caption
