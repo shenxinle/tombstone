@@ -56,7 +56,8 @@ module.exports = {
               '/frontend/css/csslayout',
               '/frontend/css/bfc'
             ]
-          }
+          },
+          '/frontend/security/',
         ]
       },
       {
