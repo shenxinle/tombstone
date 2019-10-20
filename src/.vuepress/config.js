@@ -18,7 +18,7 @@ module.exports = {
     sidebarDepth: 1, // 默认 1， 提取到 h2 (h1 是作为 sidebar 标题的)
     activeHeaderLinks: false, // 禁用滚动时 url hash 更新
     sidebar: [
-      ['/', 'home'],
+      ['/', 'Home'],
       {
         title: '手册',
         path: '/handbook/',

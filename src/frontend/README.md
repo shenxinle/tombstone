@@ -2,6 +2,7 @@
 
 * JavaScript
 * CSS
+* 浏览器
 * 工程化与工具
   * Webpack
   * Babel
@@ -32,3 +33,7 @@
 ## to read
 ### list
 * [https://github.com/alienzhou/frontend-tech-list](https://github.com/alienzhou/frontend-tech-list)
+* [https://github.com/chyingp/nodejs-learning-guide](https://github.com/chyingp/nodejs-learning-guide)
+* [https://github.com/CyC2018/CS-Notes](https://github.com/CyC2018/CS-Notes)
+* [https://github.com/MisterBooo/LeetCodeAnimation](https://github.com/MisterBooo/LeetCodeAnimation)
+* [https://github.com/trekhleb/javascript-algorithms](https://github.com/trekhleb/javascript-algorithms)
