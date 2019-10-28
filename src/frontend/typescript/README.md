@@ -75,3 +75,88 @@ npm install -g typescript
 tsc helloworld.ts
 ```
 
+## 内容
+
+* Basic Types
+* Variable Declarations
+* Interfaces
+* Classes
+* Functions
+* Generics
+* Enums
+* Type Inference
+* Typs Compatibility
+* Advanced Types
+* Symbols
+* Iterators and Generators
+* Modules
+* Namespaces
+* Namespaces and Modules
+* Module Resolution
+* Declaration Merging
+* JSX
+* Decorators
+* Mixins
+* Triple-Slash Directives
+
+### 基本类型
+
+```ts
+// Boolean
+let isDone: boolean = false;
+
+// Number
+let decimal: number = 6;
+let hex: number = 0xf00d;
+let binary: number = 0b10010;
+let octal: number = 0o744;
+
+// String
+let str: string = 'hehe';
+
+// Array
+let list: number[] = [1, 2, 3];
+let list2: Array<number> = [1, 2];
+
+// Tuple 元组
+let tup: [string, number, number[]] = ['hehe', 2, [1]];
+
+// Enum 枚举
+enum Color { Red, Green, Blue }
+let color: Color = Color.Green;
+
+// Any
+let any: any = 'any';
+let listAny: any[] = [1, 'hehe', [], {}];
+
+// Void
+function warnUser(): void {
+    console.log("This is my warning message");
+}
+let unusable: void = void 0;
+unusable = null; // // OK if `--strictNullChecks` is not given
+
+// Null and Undefined
+let undef: undefined = void 0;
+let nu: null = null;
+
+// Never
+// Function returning never must have unreachable end point
+function error(message: string): never {
+  throw new Error(message);
+}
+
+// Object
+// object is a type that represents the non-primitive type, i.e. anything that is not number, string, boolean, symbol, null, or undefined
+let obj: object = {};
+
+// Type assertions
+let someValue: any = 'hehe';
+let strLength: number = (<string>someValue).length;
+let strLength2: number = (someValue as string).length;
+```
+
+
+
+
+
