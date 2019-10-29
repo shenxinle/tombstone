@@ -59,6 +59,17 @@ module.exports = {
           },
           '/frontend/security/',
           '/frontend/typescript/',
+          {
+            title: '前端框架',
+            path: '/frontend/library/',
+            collapsable: false,
+            children: [
+              '/frontend/library/react',
+              '/frontend/library/redux',
+              '/frontend/library/reactimvc',
+              '/frontend/library/immer',
+            ]
+          },
         ]
       },
       {

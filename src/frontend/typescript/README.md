@@ -158,5 +158,10 @@ let strLength2: number = (someValue as string).length;
 
 
 
+## 参考文档
+* [http://www.typescriptlang.org/docs/home.html](http://www.typescriptlang.org/docs/home.html)
+* [https://github.com/dzharii/awesome-typescript](https://github.com/dzharii/awesome-typescript)
+
+
 
 

@@ -32,6 +32,7 @@
 
 ## to read
 ### list
+* [https://github.com/dexteryy/spellbook-of-modern-webdev](https://github.com/dexteryy/spellbook-of-modern-webdev)
 * [https://github.com/alienzhou/frontend-tech-list](https://github.com/alienzhou/frontend-tech-list)
 * [https://github.com/chyingp/nodejs-learning-guide](https://github.com/chyingp/nodejs-learning-guide)
 * [https://github.com/CyC2018/CS-Notes](https://github.com/CyC2018/CS-Notes)
