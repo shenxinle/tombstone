@@ -59,7 +59,96 @@
 
 ### Hooks API
 
+#### useState
 
+```js
+const [state, setState] = useState(initialState);
+
+// useState 参数
+useState(initialState);
+useState(() => initialState);
+
+// setState 参数
+setState(newState);
+setState(prevState => newState);
+```
+
+#### useEffect
+
+* Unlike `componentDidMount` and `componentDidUpdate`, the function passed to useEffect fires after layout and paint, during a deferred event. 
+
+```js
+useEffect(() => {
+  // effect code
+  return () => {
+    // clean code
+  }
+}, deps)
+
+// deps: 不传，每次渲染后都执行 useEffect
+// deps: [], 只在初始渲染后执行一次
+// deps: [dep1, ...], 初始渲染后执行，任何依赖变化后执行
+```
+
+#### useLayoutEffect
+
+* The signature is identical to useEffect, but it fires synchronously after all DOM mutations. Use this to read layout from the DOM and synchronously re-render.
+
+#### useContext
+
+* The current context value is determined by the value prop of the nearest `<MyContext.Provider>` above the calling component in the tree.
+
+```js
+const value = useContext(MyContext);
+```
+
+#### useReducer
+
+```js
+const [state, dispatch] = useReducer(reducer, initialArg, init);
+
+// reducer: (state, action) => newState
+// initialArg: 没有第三个参数 init 时， 这就是 initialState
+// init: (initialArg) => initialState, 可选
+
+// dispatch: ({type, payload}) => void
+```
+
+#### useCallback
+
+```js
+// Returns a memoized callback.
+const memoizedCallback = useCallback(
+  () => {
+    doSomething(a, b);
+  },
+  [a, b],
+);
+```
+
+#### useMemo
+
+```js
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+```
+
+#### useRef
+
+* useRef returns a mutable ref object whose `.current` property is initialized to the passed argument (initialValue). The returned object will **persist for the full lifetime of the component**.
+
+```js
+const ref = useRef(initialValue);
+
+// ref.current
+```
+
+#### useImperativeHandle
+
+和 `forwardRef` 一起使用, 见 [useImperativeHandle](https://reactjs.org/docs/hooks-reference.html#useimperativehandle)
+
+#### useDebugValue
+
+be used to display a label for custom hooks in React DevTools. see [useDebugValue](https://reactjs.org/docs/hooks-reference.html#usedebugvalue)
 
 
 ## 参考文档
