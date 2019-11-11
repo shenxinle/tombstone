@@ -13,6 +13,7 @@
   * React
   * Vue
   * Redux
+  * MobX
 * 性能优化
   * 加载性能
   * 运行时性能

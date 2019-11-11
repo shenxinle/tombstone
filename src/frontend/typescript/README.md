@@ -156,6 +156,59 @@ let strLength: number = (<string>someValue).length;
 let strLength2: number = (someValue as string).length;
 ```
 
+### 接口
+
+```ts
+interface Config {
+    label: string;   // 必须
+    color?: string;  // 可选
+    readonly x: number;
+}
+let config: Config = {
+    label: '',
+    x: 1
+};
+
+// function
+interface TestFunc {
+    (src: string, subStr: string): boolean
+}
+let fn: TestFunc = (src, subStr) => src.indexOf(subStr) > -1;
+
+// array
+interface StringArray {
+    [index: number]: string;
+}
+let arr: StringArray = ['1'];
+
+// class
+interface ClockInterface {
+    currentTime: Date;
+    setTime(d: Date): void;
+}
+class Clock implements ClockInterface {
+    currentTime: Date = new Date();
+    setTime(d: Date) {
+        this.currentTime = d;
+    }
+}
+
+// extends
+interface Shape {
+    color: string;
+}
+interface PenStroke {
+    penWidth: number;
+}
+interface Square extends Shape, PenStroke {
+    sideLength: number;
+}
+
+let square = {} as Square;
+square.color = "blue";
+square.sideLength = 10;
+square.penWidth = 5.0;
+```
 
 
 ## 参考文档
