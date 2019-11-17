@@ -214,7 +214,8 @@ square.penWidth = 5.0;
 ## 参考文档
 * [http://www.typescriptlang.org/docs/home.html](http://www.typescriptlang.org/docs/home.html)
 * [https://github.com/dzharii/awesome-typescript](https://github.com/dzharii/awesome-typescript)
-
+* [TypeScript安利指南](https://juejin.im/post/5d8efeace51d45782b0c1bd6)
+* [TypeScript 入门教程](https://github.com/xcatliu/typescript-tutorial/blob/master/README.md)
 
 
 
