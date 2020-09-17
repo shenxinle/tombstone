@@ -37,11 +37,13 @@
 * num.toString(base)， base 范围为 2 到 36， 表示进制。
 
 
-### BigInt
+### bigint
 在 JavaScript 中，Number 类型无法表示大于 (253-1)（即 9007199254740991），或小于 -(253-1) 的整数。这是其内部表示形式导致的技术限制。
 ```js
 // 尾部的 "n" 表示这是一个 BigInt 类型
-const bigInt = 1234567890123456789012345678901234567890n;
+const bigint = 1234567890123456789012345678901234567890n;
+// 或者
+const sameBigint = BigInt('1234567890123456789012345678901234567890');
 ```
 
 ### typeof
@@ -63,7 +65,7 @@ typeof alert // "function"
 
 
 
-## 常用 JS API
+## JS API
 
 ### String
 
@@ -176,6 +178,7 @@ typeof alert // "function"
 * `handler`  一个通常以函数作为属性的对象，各属性中的函数分别定义了在执行各种操作时代理的行为。
 
 可以拦截的方法列表
+
 <table>
   <thead>
     <tr>
@@ -316,6 +319,125 @@ numbersProxy.unshift(0); // set 触发三次
 console.log(numbers);
 numbersProxy.push(true); // TypeError
 ```
+
+
+## 柯里化
+
+柯里化是一种函数的转换，它是指将一个函数从可调用的 f(a, b, c) 转换为可调用的 f(a)(b)(c)。
+柯里化不会调用函数，它只是对函数进行转换。
+
+柯里化让我们能够更容易地获取偏函数（partially applied function）。
+
+```js
+// 一种柯里化实现
+// 只支持确定参数长度的函数， 对 f(...args) 无效
+function curry(func) {
+  return function curried(...args) {
+    if (args.length >= func.length) {
+      return func.apply(this, args);
+    } else {
+      return function(...args2) {
+        return curried.apply(this, args.concat(args2));
+      }
+    }
+  }
+}
+
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+let curriedSum = curry(sum);
+
+console.log( curriedSum(1, 2, 3) ); // 6，仍然可以被正常调用
+console.log( curriedSum(1)(2, 3) ); // 6，对第一个参数的柯里化
+console.log( curriedSum(1)(2)(3) ); // 6，全柯里化
+```
+
+## 模块（Module）
+
+### 历史的模快
+
+* AMD —— 最古老的模块系统之一，最初由 require.js 库实现。
+* CommonJS —— 为 Node.js 服务器创建的模块系统。
+* UMD —— 另外一个模块系统，建议作为通用的模块系统，它与 AMD 和 CommonJS 都兼容。
+
+### 模块基本概念和功能
+
+一个模块（module）就是一个文件。
+
+模块可以相互加载，并可以使用特殊的指令 export 和 import 来交换功能。
+
+由于模块支持特殊的关键字和功能，因此我们必须通过使用 `<script type="module">` 特性（attribute）来告诉浏览器，
+此脚本应该被当作模块（module）来对待。
+
+特性：
+* 模块始终默认使用 use strict
+* 模块级作用域
+* 模块代码仅在第一次导入时被解析
+* `import.meta` 对象包含关于当前模块的信息
+  * import.meta.url 是当前模块文件的 url
+
+#### 浏览器内特定功能
+
+与常规脚本相比，拥有 type="module" 标识的脚本有一些特定于浏览器的差异。
+
+* 模块脚本是延迟的，与 defer 特性对外部脚本和内联脚本（inline script）的影响相同。
+  ```js
+  <script type="module">
+    // 后输出 object
+    console.log(typeof button);
+  </script>
+  <script>
+    // 先输出 undefined
+    console.log(typeof button);
+  </script>
+  <div id="hehe">hehe</div>
+  ```
+
+* Async 适用于内联脚本（inline script）
+
+  对于非模块脚本，async 特性（attribute）仅适用于外部脚本。异步脚本会在准备好后立即运行，独立于其他脚本或 HTML 文档。
+
+  对于模块脚本，它也适用于内联脚本。用于不依赖任何其他东西的功能，比如埋点统计。
+
+  ```js
+  <!-- 所有依赖都获取完成（analytics.js）然后脚本开始运行 -->
+  <!-- 不会等待 HTML 文档或者其他 <script> 标签 -->
+  <script async type="module">
+    import {counter} from './analytics.js';
+
+    counter.count();
+  </script>
+  ```
+
+* 外部脚本
+
+  具有 type="module" 的外部脚本（external script）在两个方面有所不同：
+  1. 具有相同 src 的外部脚本仅运行一次（非 module 是会运行多次的）
+    ```js
+    <!-- 脚本 my.js 被加载完成（fetched）并只被运行一次 -->
+    <script type="module" src="my.js"></script>
+    <script type="module" src="my.js"></script>
+    ```
+  2. 从另一源获取外部脚本需要 CORS header（Access-Control-Allow-Origin）
+
+* 兼容性，“nomodule”
+
+  旧时的浏览器不理解 type="module"。未知类型的脚本会被忽略。对此，我们可以使用 nomodule 特性来提供一个后备：
+
+  ```js
+  <script type="module">
+    alert("Runs in modern browsers");
+  </script>
+
+  <script nomodule>
+    alert("Modern browsers know both type=module and nomodule, so skip this")
+    alert("Old browsers ignore script with unknown type=module, but execute this.");
+  </script>
+  ```
+
+### 导入和导出
 
 
 
