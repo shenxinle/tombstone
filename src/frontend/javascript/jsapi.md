@@ -439,5 +439,90 @@ console.log( curriedSum(1)(2)(3) ); // 6，全柯里化
 
 ### 导入和导出
 
+导出
+
+```js
+// 在声明前导出
+export let name = 'hehe';
+
+export function sayHi() {...}
+
+export class Dog {
+  constructor() {}
+}
+```
+
+```js
+// 导出与声明分开
+let name = 'hehe';
+
+function sayHi() {...}
+
+export { name, sayHi }
+// 可以用 as 重命名
+export { name as modName, sayHi as sayHiHi }
+```
+
+导入
+
+```js
+// 导入
+import { name, sayHi } from './modulexx.js';
+// 或
+import * as modulexx from './modulexx.js'; // 不建议（无法 tree-shaking）
+// as
+import { name as modName, sayHi as sayHiHi } from './modulexx.js';
+
+import 'xxx.js'; // 不需要赋值给变量时
+```
+
+export default
+
+```js
+// say.js
+export default function sayHi() {...}
+
+// index.js
+import sayHi from './say.js';
+```
+
+```js
+// say.js
+function sayHi(user) {
+  alert(`Hello, ${user}!`);
+}
+
+export {sayHi as default};
+
+// index.js
+import { default as sayHi } from './say.js';
+```
+
+重新导出
+
+```js
+export { sayHi } from './say.js'; // 重新导出 sayHi
+
+export { default as User } from './user.js'; // 重新导出 default
+```
+
+```js
+export * from './user.js'; // 重新导出命名的导出
+export { default } from './user.js'; // 重新导出默认的导出
+```
+
+### 动态导入
+
+```js
+<script type="module">
+  (async () => {
+    const module1 = await import('./module1.js');
+
+    console.log(module1.name);
+    module1.setName('niuniu');
+  })();
+</script>
+```
+
 
 

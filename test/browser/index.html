@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="output"></div>
+
+  <!-- <script crossorigin="anonymous" src="https://unpkg.com/@babel/standalone@7.11.6/babel.js"></script> -->
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/react/15.6.2/react.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/15.6.2/react-dom.js"></script>
+
+  <!-- <script src="https://cdn.bootcdn.net/ajax/libs/react/16.9.0/umd/react.development.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.9.0/umd/react-dom.development.js"></script> -->
+
+  <script>
+    class HelloMessage extends React.Component {
+      render() {
+        window.helloInstance = this;
+        return (
+          React.createElement('h1', {}, `Hello ${this.props.name}`)
+        )
+      }
+    }
+
+    let rootInstance = ReactDOM.render(
+      // React.createElement('div', null, React.createElement(HelloMessage, {name: 'john'})),
+      React.createElement(HelloMessage, {name: 'john'}),
+      document.getElementById('output')
+    );
+  </script>
+</body>
+
+</html>
