@@ -70,6 +70,14 @@ module.exports = {
               '/frontend/library/immer',
             ]
           },
+          {
+            title: '工程化与工具',
+            path: '/frontend/tools/',
+            collapsable: false,
+            children: [
+              '/frontend/tools/babel',
+            ]
+          },
         ]
       },
       {

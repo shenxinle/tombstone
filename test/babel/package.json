@@ -1,0 +1,24 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel server babel",
+    "start-ts": "npm-run-all --parallel server ts",
+    "server": "ws -p 3001",
+    "babel": "babel src --out-dir dist --watch --source-maps",
+    "ts": "babel src-ts --out-dir dist-ts --watch --source-maps --extensions .ts,.tsx"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "npm-run-all": "^4.1.5"
+  }
+}

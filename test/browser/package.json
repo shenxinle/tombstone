@@ -1,0 +1,11 @@
+{
+  "name": "browser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ws -p 3001"
+  },
+  "author": "",
+  "license": "ISC"
+}
