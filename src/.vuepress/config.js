@@ -25,13 +25,16 @@ module.exports = {
         collapsable: true, // 默认 true, 可折叠； 设为 false 永远展开
         sidebarDepth: 1,
         children: [
-          '/handbook/git'
+          '/handbook/markdown',
+          '/handbook/git',
+          '/handbook/editors',
+          '/handbook/npm'
         ]
       },
       {
-        title: '前端技术清单',
+        title: '前端',
         path: '/frontend/',
-        collapsable: false, // 默认 true, 可折叠； 设为 false 永远展开
+        collapsable: true, // 默认 true, 可折叠； 设为 false 永远展开
         sidebarDepth: 1,
         children: [
           '/frontend/browser/howbrowserworks',
@@ -52,6 +55,7 @@ module.exports = {
             path: '/frontend/css/',
             collapsable: false,
             children: [
+              '/frontend/css/basic',
               '/frontend/css/cssom',
               '/frontend/css/csslayout',
               '/frontend/css/bfc'
@@ -78,6 +82,14 @@ module.exports = {
               '/frontend/tools/babel',
             ]
           },
+        ]
+      },
+      {
+        title: '服务端',
+        path: '/server/',
+        children: [
+          '/server/apache',
+          '/server/db/mysql'
         ]
       },
       {

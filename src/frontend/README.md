@@ -1,4 +1,4 @@
-# 前端技术清单
+# 前端
 
 * JavaScript
 * CSS
