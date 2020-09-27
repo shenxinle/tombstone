@@ -80,6 +80,7 @@ module.exports = {
             collapsable: false,
             children: [
               '/frontend/tools/babel',
+              '/frontend/tools/webpack'
             ]
           },
         ]
