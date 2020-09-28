@@ -31,6 +31,12 @@
 * NodeJS
 
 
+## 资源链接
+
+* [antd 收集的社区精选组件](https://ant-design.gitee.io/docs/react/recommendation-cn)
+* [印记中文](https://docschina.org/)
+
+
 ## to read
 ### list
 * [https://github.com/dexteryy/spellbook-of-modern-webdev](https://github.com/dexteryy/spellbook-of-modern-webdev)
