@@ -55,10 +55,14 @@ module.exports = {
             path: '/frontend/css/',
             collapsable: false,
             children: [
-              '/frontend/css/basic',
-              '/frontend/css/cssom',
+              '/frontend/css/selector',
+              '/frontend/css/properties',
+              '/frontend/css/box',
               '/frontend/css/csslayout',
-              '/frontend/css/bfc'
+              '/frontend/css/containingblock',
+              '/frontend/css/stackingcontext',
+              '/frontend/css/bfc',
+              '/frontend/css/cssom'
             ]
           },
           '/frontend/security/',

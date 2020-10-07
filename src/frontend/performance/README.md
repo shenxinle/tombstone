@@ -174,5 +174,7 @@
     * JS、CSS(需要通过 script、link 添加到页面)
 
 ## 参考文章
+
+* [https://developer.mozilla.org/zh-CN/docs/Web/Performance](https://developer.mozilla.org/zh-CN/docs/Web/Performance)
 * [前端性能优化](https://alienzhou.github.io/fe-performance-journey/)
 * [深入理解浏览器的缓存机制](https://www.jianshu.com/p/54cc04190252)

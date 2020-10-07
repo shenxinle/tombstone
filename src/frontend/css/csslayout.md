@@ -7,13 +7,21 @@
 
 ## 浮动（Float）
 
-`float: none(默认)|left|right;`
+`float: none(默认) | left | right;`
 
 ### 清除浮动
 
 当你不想要某个元素受到其之前的浮动元素影响时，为其添加clear属性即可。使用left值可以清除左浮动效果，right值为右浮动，both则会清除左右浮动。
 
-`clear: both|left|right;`
+`clear: both | left | right;`
+
+```css
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+```
 
 ### 块级格式化上下文（Block Formatting Context）
 
@@ -122,15 +130,15 @@ flex-direction的值被定义为弹性盒子的主轴（main axis）。默认的
 
 **容器属性**
 
-* display: flex|inline-flex;
-* flex-direction: row|rew-reverse|column|column-reverse
-* flex-wrap: nowrap|wrap|wrap-reverse
+* display: flex | inline-flex;
+* flex-direction: row(默认) | row-reverse | column | column-reverse
+* flex-wrap: nowrap(默认) | wrap | wrap-reverse
 * flex-flow: flex-direction 和 flex-wrap 的合写
-* justify-content: flex-start|flex-end|center|space-between|space-around
+* justify-content: flex-start(默认) | flex-end | center | space-between | space-around
   * 主轴对齐方式
-* align-items: flex-start|flex-end|center|baseline|stretch
+* align-items: flex-start | flex-end | center | baseline | stretch(默认)
   * 交叉轴对齐方式
-* align-content: flex-start|flex-end|center|space-between|space-around|stretch
+* align-content: flex-start | flex-end | center | space-between | space-around | stretch
   * wrap 时多个主轴在交叉轴方向的对齐方式（类似主轴方向的 justify-content）
 
 **item 属性**
@@ -138,7 +146,7 @@ flex-direction的值被定义为弹性盒子的主轴（main axis）。默认的
 * order: `<num>`
 * flex-grow: `<num>` 默认 0
 * flex-shrink: `<num>` 默认 1
-* flex-basic: auto|`<length>`
+* flex-basic: auto | `<length>`
 * flex: flex-grow, flex-shrink, flex-basic 的简写
   * 单值语法: 值必须为以下其中之一:
     * 一个无单位数(number): 它会被当作 flex-grow 的值。

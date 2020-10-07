@@ -12,6 +12,8 @@ import debounce from 'lodash/debounce';
 
 export default {
   setup() {
+    // eslint-disable-next-line
+    debugger;
     const value = ref('');
     const updateValue = debounce((e) => {
       value.value = e.target.value;
