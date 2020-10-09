@@ -10,6 +10,8 @@ Document Object Model（文档对象模型）是用来呈现以及与任意 HTML
 
 Node 继承了 EventTarget； Document、Element、Attr、CharacterData (which Text, Comment, and CDATASection inherit) 等继承了 Node。
 
+![hierarchy](./assets/dom-class-hierarchy.svg)
+
 ### EventTarget
 
 EventTarget 是一个由可以接收事件的对象实现的接口，并且可以为它们创建侦听器。
@@ -46,13 +48,14 @@ EventTarget 是一个由可以接收事件的对象实现的接口，并且可�
   * 克隆一个 Node，并且可以选择是否克隆这个节点下的所有内容
 * contains(node)
   * 包含，包括是本身时，返回 true
-* getRootNode()  *正产文档中为 document*
+* getRootNode()  *正常文档中为 document*
 * hasChildNodes() 
   * 等价于 node.firstChild !== null 或 node.childNodes.length > 0
 * parentNode.insertBefore(newNode, referenceNode)
 * parentNode.removeChild(childNode)
 * parentNode.replaceChild(newChild, oldChild)
 
+![node](./assets/dom-links.svg)
 
 ```js
 // 移除所有子节点
@@ -60,6 +63,9 @@ function removeAllChildren(node) {
   while(node.firstChild) {
     node.removeChild(node.firstChild);
   }
+
+  // or
+  node.textContent = '';
 }
 
 // 遍历节点树
@@ -92,6 +98,7 @@ NodeList 对象是一个节点的集合，是由 Node.childNodes 和 document.qu
 #### 属性
 * tagName  *只读*
 * attributes  *只读*
+* dataset *以 data- 开头的特性*
 * id
 * className
 * classList  *只读*
@@ -112,7 +119,9 @@ NodeList 对象是一个节点的集合，是由 Node.childNodes 和 document.qu
 * getElementsByClassName(name)  *返回一个即时更新的（live） HTMLCollection*
 * getElementsByTagName(tagName)  *返回一个动态的包含所有指定标签名的元素的HTML集合HTMLCollection*
 * querySelector(selector)
-* querySelectorAll(selector)  *返回一个non-live的NodeList*
+* querySelectorAll(selector)  **返回一个non-live的NodeList**
+* matches(selector)  *返回 true/false*
+* closest(selector) *查找与 CSS 选择器匹配的最近的祖先*
 * getAttribute(attrName)
 * hasAttribute(attrName)
 * setAttribute(attrName, value)
@@ -125,6 +134,7 @@ NodeList 对象是一个节点的集合，是由 Node.childNodes 和 document.qu
 * scrollIntoView()
   * 有兼容性， [解释](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView)
 
+![element](./assets/dom-links-elements.svg)
 
 ### Document
 

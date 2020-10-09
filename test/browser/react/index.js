@@ -1,4 +1,4 @@
-import { add } from './react/mod.js'
+import { add } from './mod.js'
 
 class HelloMessage extends React.Component {
   render () {
