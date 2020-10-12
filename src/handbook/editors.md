@@ -13,7 +13,9 @@
 [官方文档](https://code.visualstudio.com/docs/editor/settings-sync)
 
 
-## EditorConfig
+## 前端项目相关配置文件
+
+### EditorConfig
 
 ```yaml
 # .editorconfig
@@ -27,7 +29,7 @@ root = true
 [*]
 charset = utf-8
 indent_style = space
-indent_size = 4
+indent_size = 2
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
@@ -36,3 +38,35 @@ trim_trailing_whitespace = true
 [*.md]
 trim_trailing_whitespace = false
 ```
+
+### Prettier
+
+```js
+// .prettierrc.js
+module.exports = {
+  printWidth: 80,
+  semi: true,
+  singleQuote: true,
+  trailingComma: 'none',
+  bracketSpacing: true,
+  jsxBracketSameLine: false,
+  arrowParens: 'avoid',
+  requirePragma: false,
+  proseWrap: 'preserve'
+};
+```
+
+### git
+
+```yaml
+# .gitignore
+node_modules/
+```
+
+### npm
+
+```yaml
+# .npmrc
+package-lock=false
+```
+

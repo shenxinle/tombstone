@@ -47,7 +47,9 @@ module.exports = {
               '/frontend/javascript/howjsworks',
               '/frontend/javascript/crossorigin',
               '/frontend/javascript/jsapi',
-              '/frontend/javascript/dom'
+              '/frontend/javascript/dom',
+              '/frontend/javascript/jsutil',
+              '/frontend/javascript/jsalgorithms'
             ]
           },
           {
