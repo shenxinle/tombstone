@@ -8,10 +8,18 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const config = {
+  mode: 'development',
+  devtool: 'eval-cheap-module-source-map',
+  devServer: {
+    contentBase: path.resolve(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
+    hot: true,
+  },
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js'
+    filename: '[name].[hash].js'
   },
   module: {
     rules: [

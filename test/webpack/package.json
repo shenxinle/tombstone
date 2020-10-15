@@ -8,15 +8,19 @@
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/**",
+    "start": "webpack-dev-server --open",
     "build-dev": "webpack -d --mode development",
     "build-prod": "webpack -p --mode production",
     "test": "jest",
     "test1": "webpack --config test/test1/webpack.config.js"
   },
   "dependencies": {
+    "lodash": "^4.17.20",
+    "mobx": "^6.0.1",
+    "mobx-react": "^7.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "lodash": "^4.17.20"
+    "webpack-dev-server": "^3.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

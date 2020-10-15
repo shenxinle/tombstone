@@ -100,6 +100,14 @@ module.exports = {
         ]
       },
       {
+        title: '网络',
+        path: '/network/',
+        children: [
+          '/network/basic',
+          '/network/https'
+        ]
+      },
+      {
         title: '文章',
         path: '/blog/',
       }

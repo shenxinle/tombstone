@@ -198,4 +198,65 @@ function throttle(fn, delay) {
 }
 ```
 
+## 利用 generator/yeild 实现一个接口， 效果类似 async/await 语法
+
+```js
+const delay = (ms, value) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // reject('hehe');
+      resolve(value);
+    }, ms);
+  });
+}
+
+async function test() {
+  let value1 = await delay(500, 'value1');
+  throw 'youyou';
+  let value2 = await delay(500, 'value2...');
+  return `${value1}, ${value2}`;
+}
+
+test().then(console.log, console.error);
+
+
+function* testG() {
+  let value1 = yield delay(500, 'value1');
+  throw 'youyou';
+  let value2 = yield delay(500, 'value2...');
+  return `${value1}, ${value2}`;
+}
+
+function runG(generator) {
+  return new Promise((resolve, reject) => {
+    const g = generator();
+    
+    function next(v) {
+      let value;
+      
+      try {
+        value = g.next(v);
+      } catch(err) {
+        reject(err);
+        return;
+      }
+      
+      if (value.done) {
+        resolve(value.value);
+      } else {
+        Promise.resolve(value.value).then((fv) => {
+          next(fv);
+        }, (err) => {
+          reject(err);
+        });
+      }
+    }
+    
+    next();
+  });
+}
+
+runG(testG).then(console.log, console.error);
+```
+
 
