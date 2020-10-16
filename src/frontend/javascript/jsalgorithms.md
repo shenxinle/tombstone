@@ -71,6 +71,21 @@ function mergeSort(arr) {
 }
 ```
 
+### 冒泡
+
+```js
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] > arr[j]) {
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+  }
+  return arr;
+}
+```
+
 
 ## 递归
 
@@ -144,5 +159,69 @@ function binaryFind(arr, target) {
 
 
 
+## 随机
+
+将有序的数组完全打乱
+
+```js
+function randomArr(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    let randomIndex = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
+  }
+  return arr;
+}
+```
 
 
+## 其他
+
+### 版本号比较
+
+类似 v1.2.3 的版本号，入参两个版本号， 返回 1/0/-1
+
+```js
+function versionCompare(v1, v2) {
+  const toArray = (v) => {
+    return v.replace(/v/i, '')
+      .split('.');
+  }
+  let arr1 = toArray(v1);
+  let arr2 = toArray(v2);
+  let maxLen = Math.max(arr1.length, arr2.length);
+  let i = 0;
+
+  while(i < maxLen) {
+    let n1 = Number(arr1[i] || 0);
+    let n2 = Number(arr2[i] || 0);
+
+    if (n1 !== n2) {
+      return n1 > n2 ? 1 : -1;
+    }
+    i++;
+  }
+
+  return 0;
+}
+```
+
+```js
+// 转为字符串比较
+// 缺点 versionCompare('v1.2.3.0', 'V1.2.3') => 1
+function versionCompare(v1, v2) {
+  const format = (v) => {
+    return v.replace(/v/i, '')
+      .split('.')
+      .map(v => v.padStart(5, '0'))
+      .join();
+  }
+  v1 = format(v1);
+  v2 = format(v2);
+
+  if (v1 === v2) {
+    return 0;
+  } else {
+    return v1 > v2 ? 1 : -1;
+  }
+}
+```
