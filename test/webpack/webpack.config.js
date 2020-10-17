@@ -29,9 +29,24 @@ const config = {
         exclude: /node_modules/
       },
       {
+        test: /\.ts(x)?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          // MiniCssExtractPlugin.loader,
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          // MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -43,22 +58,10 @@ const config = {
         exclude: /\.module\.css$/
       },
       {
-        test: /\.ts(x)?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ]
-      },
-      {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          // MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -109,7 +112,7 @@ const config = {
       analyzerMode: 'static',
       openAnalyzer: false,
     }),
-    new MiniCssExtractPlugin(),
+    // new MiniCssExtractPlugin(),
     new CleanWebpackPlugin()
   ],
   optimization: {
