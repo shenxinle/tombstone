@@ -86,7 +86,8 @@ module.exports = {
             collapsable: false,
             children: [
               '/frontend/tools/babel',
-              '/frontend/tools/webpack'
+              '/frontend/tools/webpack',
+              '/frontend/tools/errorhandling'
             ]
           },
         ]

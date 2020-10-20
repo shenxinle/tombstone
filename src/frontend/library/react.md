@@ -152,6 +152,7 @@ be used to display a label for custom hooks in React DevTools. see [useDebugValu
 
 
 ## 参考文档
+* [React技术揭秘](https://react.iamkasong.com/)
 * [Thinking in React Hooks](https://wattenberger.com/blog/react-hooks)
 * [https://github.com/gragland/usehooks](https://github.com/gragland/usehooks)
 
