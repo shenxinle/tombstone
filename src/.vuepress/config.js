@@ -87,6 +87,7 @@ module.exports = {
             children: [
               '/frontend/tools/babel',
               '/frontend/tools/webpack',
+              '/frontend/tools/rollup',
               '/frontend/tools/errorhandling'
             ]
           },
