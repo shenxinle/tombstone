@@ -7,6 +7,10 @@
 1. `https://github.com/username/gitrepo.git` 替换为 `https://github.com.cnpmjs.org/username/gitrepo.git`
 2. 将 clone 后的仓库 git remote url 配置改回 github。
 
+### github action
+
+todo: add
+
 ## git
 
 三种状态： working directory,  staging area,  .git directory(repository)
