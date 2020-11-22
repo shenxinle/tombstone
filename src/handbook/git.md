@@ -1,4 +1,14 @@
 # git
+
+## github
+
+### 加快 clone 速度
+
+1. `https://github.com/username/gitrepo.git` 替换为 `https://github.com.cnpmjs.org/username/gitrepo.git`
+2. 将 clone 后的仓库 git remote url 配置改回 github。
+
+## git
+
 三种状态： working directory,  staging area,  .git directory(repository)
 
 .git 目录
@@ -8,7 +18,7 @@
 * objects  &emsp;  存储所有数据内容
 * refs  &emsp;  存储指向数据（分支）的提交对象的指针
 
-## git config
+### git config
 git 配置文件的位置
 
 * /etc/gitconfig  &emsp;  `git config --system`
@@ -23,74 +33,74 @@ git 配置文件的位置
 
 常见的配置项: user.name, user.email, core.editor
 
-## git init
+### git init
 `git init`  把目录变成 git 仓库
 
-## git clone
+### git clone
 `git clone repo-name`
 
 `git clone --recursive repo-name`  克隆含有子模块的仓库
 
-## git add
+### git add
 
-## git status
+### git status
 
-## git diff
+### git diff
 
-## git commit
+### git commit
 
-## git reset
+### git reset
 
-## git rm
+### git rm
 
-## git mv
+### git mv
 
-## git clean
+### git clean
 
 
-## git branch
+### git branch
 
-## git checkout
+### git checkout
 
-## git merge
+### git merge
 
-## git log
+### git log
 `git log`
 
 `git log --graph` 图形化
 
-## git stash
+### git stash
 
-## git tag
+### git tag
 
-## git fetch
+### git fetch
 
-## git pull
+### git pull
 
-## git push
+### git push
 
-## git remote
+### git remote
 
-## git archive
+### git archive
 
-## git submodule
+### git submodule
 
-## git show
+### git show
 
-## git shortlog
+### git shortlog
 
-## git cherry-pick
+### git cherry-pick
 
-## git rebase
+### git rebase
 
-## git revert
+### git revert
 
-## gitk
+### gitk
 gitk 是 git 自带的历史记录的图形化查看器
 
 `gitk`  查看 HEAD
 
 `gitk --all`  查看所有分支
 
-## git gui
+### git gui
 `git gui`  图形化 commit 界面
