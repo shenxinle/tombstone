@@ -9,7 +9,7 @@
 
 ### github action
 
-todo: add + 2
+todo: add
 
 ## git
 
