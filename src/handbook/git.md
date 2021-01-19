@@ -1,5 +1,18 @@
 # git
 
+## 部分 git 操作
+
+```sh
+# 撤销本地 commit， xxxxxx 未要撤销的提交的前一次提交
+git reset xxxxxx
+
+# rebase
+git commit -m xxx
+git pull --rebase
+# 本地解决冲突
+git rebase --continue
+```
+
 ## github
 
 ### 加快 clone 速度

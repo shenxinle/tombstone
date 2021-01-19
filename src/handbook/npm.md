@@ -68,3 +68,63 @@ npm install -g local-web-server
 ws --help   # 查看使用方法
 ws -d build -p 3001  # 在build文件夹内启动 localhost:3001, 没有-d的话就在本文件夹内
 ```
+
+### minimist
+
+功能： 解析命令行参数
+链接： https://www.npmjs.com/package/minimist
+
+```js
+// index.js
+var argv = require('minimist')(process.argv.slice(2));
+console.log(argv);
+
+// node index.js -a 1 --abc --hehe 3 ni hao
+// output: { _: [ 'ni', 'hao' ], a: 1, abc: true, hehe: 3 }
+```
+
+### enquirer
+
+功能： 命令行表单交互
+链接： https://www.npmjs.com/package/enquirer
+
+```js
+const { prompt } = require('enquirer');
+
+(async () => {
+  let { username, password, answer } = await prompt([
+    {
+      type: 'input',
+      name: 'username',
+      message: 'what is your username?'
+    }, {
+      type: 'password',
+      name: 'password',
+      message: 'what is your password?'
+    }, {
+      type: 'confirm',
+      name: 'answer',
+      message: 'Do you like Enquirer?'
+    }
+  ]);
+  console.log(`
+    username: ${username}
+    password: ${password}
+    answer: ${answer}
+  `);
+})();
+```
+
+### kolorist
+
+功能：给输入输出加颜色
+链接：https://www.npmjs.com/package/kolorist
+
+```js
+const { red, cyan, bgGray, stripColors } = require('kolorist');
+
+console.log(red('Error: hehehe'));
+console.log(cyan('file.js'));
+console.log(bgGray('gray'));
+console.log(stripColors(red('normal')));
+```
