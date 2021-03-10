@@ -3,8 +3,11 @@
 ## 部分 git 操作
 
 ```sh
-# 撤销本地 commit， xxxxxx 未要撤销的提交的前一次提交
+# 撤销本地某次 commit 之后的修改， xxxxxx 为要撤销的提交的前一次提交
 git reset xxxxxx
+
+# 撤销某次 commit 的修改（可以为中间的）, 创建一个新提交
+git revert --no-commit xxx
 
 # rebase
 git commit -m xxx
