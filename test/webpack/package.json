@@ -15,7 +15,7 @@
     "test1": "webpack --config test/test1/webpack.config.js"
   },
   "dependencies": {
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mobx": "^6.0.1",
     "mobx-react": "^7.0.0",
     "react": "^16.13.1",
